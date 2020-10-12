@@ -30,12 +30,6 @@ const chooseEmployee = () => {
                 }
             }
         },
-        {
-            type: 'confirm',
-            message: "Are you sure you're finished?",
-            name: 'confirm-done',
-            when: (answers) => answers.choice === [2],
-        },
     ])
         .then((answers) => {
             console.log(answers)
@@ -46,7 +40,7 @@ const chooseEmployee = () => {
             }
              else if(answers.choice == 'Finish building my team') {
                 writePage();
-                console.log("You're all done!");
+                console.log("You're all done! Open 'team.html' to see your finished page.");
             }
         });
 }

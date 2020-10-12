@@ -1,9 +1,4 @@
-const manager = "../lib/Manager";
-const engineer = "../lib/Engineer";
-const intern = "../lib/Intern";
 
-function generatePage() {
-    return `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,41 +58,41 @@ function generatePage() {
     <div class="row">
         <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
             <div class="col card-header">
-                <h4> ${manager.getName} </h4>
+                <h4> undefined </h4>
             </div>
             <div class="col card-header">
-                <h4> ${manager.getRole}</h4>
+                <h4> undefined</h4>
             </div>
             <ul class="list-group list-group-flush text">
-                <li class="list-group-item">ID: ${manager.getID}</li>
-                <li class="list-group-item">Email: <a href = "mailto: ${manager.getEmail}">${manager.getEmail}</li>
-                <li class="list-group-item">Office Number: ${manager.getOfficeNumber}</li>
+                <li class="list-group-item">ID: undefined</li>
+                <li class="list-group-item">Email: <a href = "mailto: undefined">undefined</li>
+                <li class="list-group-item">Office Number: undefined</li>
             </ul>
         </div>
         <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
             <div class="col card-header">
-                <h4> ${engineer.getName} </h4>
+                <h4> undefined </h4>
             </div>
             <div class="col card-header">
-                <h4> ${engineer.getRole} </h4>
+                <h4> undefined </h4>
             </div>
             <ul class="list-group list-group-flush text">
-                <li class="list-group-item">ID: ${engineer.getID}</li>
-                <li class="list-group-item">Email: <a href = "mailto: ${engineer.getEmail}">${engineer.getEmail}</li>
-                <li class="list-group-item"> <a href="https://github.com/${engineer.getGithub}">GitHub </a> </li>
+                <li class="list-group-item">ID: undefined</li>
+                <li class="list-group-item">Email: <a href = "mailto: undefined">undefined</li>
+                <li class="list-group-item"> <a href="https://github.com/undefined">GitHub </a> </li>
             </ul>
         </div>
         <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
             <div class="col card-header">
-                <h4> ${intern.getName} </h4>
+                <h4> undefined </h4>
             </div>
             <div class="col card-header">
-                <h4> ${intern.getRole} </h4>
+                <h4> undefined </h4>
             </div>
             <ul class="list-group list-group-flush text">
-                <li class="list-group-item">ID: ${intern.getID}</li>
-                <li class="list-group-item">Email: <a href = "mailto: ${intern.getEmail}">${intern.getEmail}</li>
-                <li class="list-group-item">School: ${intern.getSchool}</li>
+                <li class="list-group-item">ID: undefined</li>
+                <li class="list-group-item">Email: <a href = "mailto: undefined">undefined</li>
+                <li class="list-group-item">School: undefined</li>
             </ul>
         </div>
     </div>
@@ -105,7 +100,3 @@ function generatePage() {
 </body>
 
 </html>
-`
-    }
-
-module.exports = generatePage;
