@@ -2,7 +2,7 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
 
-const Employee = require("./lib/Employee");
+ 
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
@@ -65,7 +65,7 @@ const promptManager = () => {
         {
             type: 'number',
             message: "What is your employee ID?",
-            name: 'ID',
+            name: 'mgrID',
             validate: idInput => {
                 if (idInput) {
                     return true;
@@ -103,7 +103,7 @@ const promptManager = () => {
         },
     ])
     .then(data => {
-        const manager = new Manager(data.name, data.id, data.email, data.officenumber)
+        const manager = new Manager(data.name, data.mgrID, data.email, data.officenumber)
         allTeamMembers.push(manager)
         allIDs.push(data.id)
         chooseEmployee();
@@ -238,6 +238,7 @@ const promptIntern = () => {
 
 function writePage() {
     if (!fs.existsSync(OUTPUT_DIR)) {fs.mkdirSync(OUTPUT_DIR)}
+    console.log(allTeamMembers)
     fs.writeFileSync(output_path, generatePage(allTeamMembers), 'UTF-8')
 }
 

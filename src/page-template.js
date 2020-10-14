@@ -1,9 +1,7 @@
-const manager = "../lib/Manager";
-const engineer = "../lib/Engineer";
-const intern = "../lib/Intern";
 
-function generatePage() {
-    return `
+function generatePage(allTeamMembers) {
+    console.log(allTeamMembers[0].getName())
+    let content = `
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,53 +57,43 @@ function generatePage() {
         <span class="navbar-brand mb-0 h1">
             <h1>My Team</h1>
         </span>
-    </nav>
-    <div class="row">
-        <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
-            <div class="col card-header">
-                <h4> ${manager.getName} </h4>
-            </div>
-            <div class="col card-header">
-                <h4> ${manager.getRole}</h4>
-            </div>
-            <ul class="list-group list-group-flush text">
-                <li class="list-group-item">ID: ${manager.getID}</li>
-                <li class="list-group-item">Email: <a href = "mailto: ${manager.getEmail}">${manager.getEmail}</li>
-                <li class="list-group-item">Office Number: ${manager.getOfficeNumber}</li>
-            </ul>
-        </div>
-        <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
-            <div class="col card-header">
-                <h4> ${engineer.getName} </h4>
-            </div>
-            <div class="col card-header">
-                <h4> ${engineer.getRole} </h4>
-            </div>
-            <ul class="list-group list-group-flush text">
-                <li class="list-group-item">ID: ${engineer.getID}</li>
-                <li class="list-group-item">Email: <a href = "mailto: ${engineer.getEmail}">${engineer.getEmail}</li>
-                <li class="list-group-item"> <a href="https://github.com/${engineer.getGithub}">GitHub </a> </li>
-            </ul>
-        </div>
-        <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
-            <div class="col card-header">
-                <h4> ${intern.getName} </h4>
-            </div>
-            <div class="col card-header">
-                <h4> ${intern.getRole} </h4>
-            </div>
-            <ul class="list-group list-group-flush text">
-                <li class="list-group-item">ID: ${intern.getID}</li>
-                <li class="list-group-item">Email: <a href = "mailto: ${intern.getEmail}">${intern.getEmail}</li>
-                <li class="list-group-item">School: ${intern.getSchool}</li>
-            </ul>
-        </div>
-    </div>
+    </nav> <div class="row">`
 
-</body>
+    for (var i = 0; i < allTeamMembers.length; i++) {
 
-</html>
+       content = content + `   
+        <div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
+            <div class="col card-header">
+                <h4> ${allTeamMembers[i].getName()} </h4>
+            </div>
+            <div class="col card-header">
+                <h4> ${allTeamMembers[i].getRole()}</h4>
+            </div>
+            <ul class="list-group list-group-flush text">
+                <li class="list-group-item">ID: ${allTeamMembers[i].getId()}</li>
+                <li class="list-group-item">Email: <a href = "mailto: ${allTeamMembers[i].getEmail()}">${allTeamMembers[i].getEmail()}</a></li>
+               ${allTeamMembers[i].getRole() ===  "Manager" ?  
+               "<li class='list-group-item'>Office Number:" +allTeamMembers[i].getOfficeNumber()+ "</li>" :
+                allTeamMembers[i].getRole() === "Engineer" ?    
+                 "<li class='list-group-item'>Github:" +allTeamMembers[i].getGithub()+ "</li>" :
+                 "<li class='list-group-item'>School:" +allTeamMembers[i].getSchool()+ "</li>"
+               }
+            </ul>
+        </div>
+       
+      
+    
 `
     }
+
+
+    content = content + `   </div></body></html>`
+
+
+
+     return content;
+
+
+}
 
 module.exports = generatePage;
